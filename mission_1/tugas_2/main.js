@@ -1,3 +1,4 @@
+// Script Untuk mengubah teks
 function updateText() {
     var viewportWidth = window.innerWidth || document.documentElement.clientWidth;
     var lessonsText = document.getElementById("lessonsText");
@@ -9,12 +10,11 @@ function updateText() {
     }
 }
 
-// Panggil fungsi saat halaman dimuat
 updateText();
 
-// Panggil fungsi saat ukuran jendela berubah
 window.addEventListener('resize', updateText);
 
+// Object untuk data yang akan ditampilkan
 const instructors = [
     {
         name: "Muhammad Daffa Raihandika",
@@ -78,6 +78,7 @@ const instructors = [
     },
 ];
 
+// Script untuk menampilkan insturctors
 const container = document.getElementById('instructorsContainer');
 
 instructors.forEach(instructor => {
