@@ -20,7 +20,7 @@
   </head>
   <body>
     <div class="container-fluid">
-      <h1 class="title">iCashier</h1>
+      <h1 class="title">Pick Me Store</h1>
       <div class="row items" id="product"></div>
 
       <div class="" id="cartContainer"></div>
@@ -60,39 +60,39 @@
               </button>
 
               <!-- Modal -->
-              <div
-                class="modal fade"
-                id="exampleModal"
-                tabindex="-1"
-                aria-labelledby="exampleModalLabel"
-                aria-hidden="true"
-              >
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">
-                        Modal title
-                      </h5>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      ></button>
+                      <h5 class="modal-title" id="exampleModalLabel">Pick Me Store</h5>
+                      <div class="informasi-toko">
+                        <p>Address: Serray Valey DeLima No D6</p>
+                        <p>Telp: 022-5203542</p>
+                      </div>
+                      <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                     </div>
-                    <div class="modal-body">...</div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button type="button" class="btn btn-primary">
-                        Save changes
-                      </button>
-                    </div>
+                    <div class="modal-body" id="receipt"></div>
+                    
+                    <!-- Modal Footer -->
+                    <div class="modal-body">
+                      <div class="row struk-pembayaran">
+                        <div class="col-md-8">
+                          <!-- Kolom pertama dengan judul -->
+                          <p>Total Pembelian :</p>
+                          <p>Pajak 11% :</p>
+                          <p>Total Bayar :</p>
+                        </div>
+                        <div class="col-md-4">
+                          <!-- Kolom kedua dengan nilai -->
+                          <p>Rp <span class="total-pembelian"></span></p>
+                          <p>Rp <span class="pajak"></span></p>
+                          <p>Rp <span class="total-bayar"></span></p>
+                        </div>
+                      </div>
+                      <!-- Tombol Close dan Save Changes (jika dibutuhkan) -->
+                      <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button> -->
+                    </div>                    
                   </div>
                 </div>
               </div>

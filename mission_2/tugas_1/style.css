@@ -34,6 +34,10 @@ body {
   padding-right: 10px;
 }
 
+.cart-item{
+  padding-top: 40px;
+}
+
 #cartPembayaran {
   display: none;
 }
@@ -68,4 +72,50 @@ hr {
 .btn-struk {
   width: 150px;
   margin-right: 12px;
+}
+
+.modal-header{
+  display: block;
+  text-align: center;
+}
+
+.modal-header p{
+  margin-bottom: 0;
+}
+
+.modal-body p{
+  text-align: start;
+  margin: 0;
+  padding: 0;
+}
+
+.modal-body span{
+  margin: 0;
+  padding: 0;
+  text-align: start;
+}
+
+.struk-produk{
+  /* margin-bottom: 20px; */
+  padding: 10px 15px;
+}
+
+.struk-produk .row{
+  text-align: start;
+}
+
+.struk-pembayaran{
+  padding: 10px 15px;
+}
+
+.struk-pembayaran .col-md-8{
+  padding: 0;
+}
+
+.struk-pembayaran .col-md-8 p{
+  text-align: end;
+}
+
+.struk-pembayaran .col-md-4 p{
+  text-align: end;
 }

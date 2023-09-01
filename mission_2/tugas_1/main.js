@@ -69,18 +69,56 @@ class Cart {
     return result;
   }
 
-  updatePayment() {
-    const totalPembelian = document.querySelector(".total-pembelian");
-    // const totalPembelianFormat = Product.formatNumberWithCommas(totalPembelian);
-    const pajak = document.querySelector(".pajak");
-    // const pajakFormat = Product.formatNumberWithCommas(pajak);
-    const totalBayar = document.querySelector(".total-bayar");
-    // const totalBayarFormat = Product.formatNumberWithCommas(totao);
+  printReceipt(){
+
+    const containerReceipt = document.getElementById("receipt");
+
+    containerReceipt.innerHTML = '';
+
+    this.cartItems.forEach(item => {
+      const rowDiv = document.createElement("div");
+      rowDiv.classList.add('row', 'struk-produk');
+
+      rowDiv.innerHTML = `
+            <div class="col-md-8">
+              <div class="row">${item.namaProduk}</div>
+              <div class="row">
+                <p class="info-pembelian"><span class="harga-produk">Rp ${Product.formatNumberWithCommas(item.hargaProduk)}</span> x <span class="quantity">${item.quantity}</span></p>
+              </div>
+            </div>
+            <div class="col-md-4">Rp ${Product.formatNumberWithCommas(item.hargaProduk * item.quantity)}</div>
+          `;
+
+      containerReceipt.appendChild(rowDiv);
+
+      
+    })
+
+  }
+
+  updateReceipt(){
+    const totalPembelian = document.querySelector(".struk-pembayaran .total-pembelian");
+    const pajak = document.querySelector(".struk-pembayaran .pajak");
+    const totalBayar = document.querySelector(".struk-pembayaran .total-bayar");
 
     let currentPajak = this.calculatePajak();
     let currentTotalBayar = this.calculateTotalBayar();
 
-    // console.log("current total bayar : " + currentTotalBayar);
+    totalPembelian.textContent = Product.formatNumberWithCommas(
+      this.totalHarga
+    );
+    pajak.textContent = Product.formatNumberWithCommas(currentPajak);
+
+    totalBayar.textContent = Product.formatNumberWithCommas(currentTotalBayar);
+  }
+
+  updatePayment() {
+    const totalPembelian = document.querySelector("#cartPembayaran .total-pembelian");
+    const pajak = document.querySelector("#cartPembayaran .pajak");
+    const totalBayar = document.querySelector("#cartPembayaran .total-bayar");
+
+    let currentPajak = this.calculatePajak();
+    let currentTotalBayar = this.calculateTotalBayar();
 
     totalPembelian.textContent = Product.formatNumberWithCommas(
       this.totalHarga
@@ -126,8 +164,11 @@ class Cart {
                 <div class="row">Qty : ${product.quantity}</div>
                 <div class="row">Harga : Rp ${hargaProdukFormat}</div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <p>Rp ${hargaProdukTotal}</p>
+            </div>
+            <div class="col-md-1">
+              <button class="btn btn-danger btn-hapus-produk" data-name="${this.cartItems.indexOf(product)}">x</button>
             </div>
         </div>
         <hr>
@@ -164,8 +205,11 @@ class Cart {
                 <div class="row">Qty : ${product.quantity}</div>
                 <div class="row">Harga : Rp ${hargaProdukFormat}</div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <p>Rp ${hargaProdukTotal}</p>
+            </div>
+            <div class="col-md-1">
+              <button class="btn btn-danger btn-hapus-produk" data-name="${this.cartItems.indexOf(product)}">x</button>
             </div>
         </div>
         <hr>
@@ -177,30 +221,16 @@ class Cart {
       cartItemsContainer.appendChild(cartItem);
     });
     this.totalHarga = totalHargaProduk;
-  }
+  } 
 }
 
-// Gunakan fungsi showProduct untuk menampilkan produk
-// const produk1 = new Product(
-//   "New Balance 550 Men's Sneakers - White",
-//   100,
-//   "assets/img/nb-1.png"
-// );
-// const produk2 = new Product(
-//   "New Balance Made In USA 990v6",
-//   200,
-//   "assets/img/nb-2.png"
-// );
-// const produk3 = new Product(
-//   "New Balance 2002R Men's Sneakers- Grey",
-//   300,
-//   "assets/img/nb-3.png"
-// );
-// const produk4 = new Product(
-//   "New Balance 1906 Men's Sneakers Shoes - Grey",
-//   400,
-//   "assets/img/nb-4.png"
-// );
+function scrollPageToBottom() {
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
+}
+
 const produk1 = new Product(
   "New Balance 550 Men's Sneakers - White",
   2099000,
@@ -254,17 +284,18 @@ const products = [
 ];
 Product.showProduct(products);
 
-const buttons = document.querySelectorAll(".items .btn-tambahKeranjang");
 const cart = new Cart();
 
 document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".btn-tambahKeranjang");
   const cartPembayaran = document.getElementById("cartPembayaran");
+  const btnStruk = document.querySelector('.btn-struk');
   const cart = new Cart();
   let showCart = false;
 
   buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
+      event.preventDefault();
       const quantityInput = document.querySelectorAll(".num")[index];
       const quantity = parseInt(quantityInput.textContent);
       const existingProduct = cart.cartItems.find(
@@ -282,19 +313,34 @@ document.addEventListener("DOMContentLoaded", function () {
         if (existingProduct) {
           existingProduct.quantity += quantity;
           cart.updateCartView();
+          console.log("existing");
         } else {
           const product = products[index];
           product.quantity = quantity;
           cart.addToCart(product, quantity);
+          console.log("not existing");
         }
-
+        
         quantityInput.textContent = "0";
+
+        scrollPageToBottom();
+
       } else {
         alert("Harap masukkan jumlah produk yang valid.");
       }
       cart.updatePayment();
+      
     });
+
+    
   });
+
+  btnStruk.addEventListener("click", () => {
+    cart.printReceipt();
+    cart.updateReceipt();
+  })
+
+  
 });
 
 const plus = document.querySelectorAll(".plus");
