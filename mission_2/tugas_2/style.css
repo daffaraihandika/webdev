@@ -1,0 +1,107 @@
+@font-face {
+    font-family: 'Courier New';
+    src: url('assets/fonts/courbd.ttf') format('truetype');
+}
+
+body{
+    width: 100%;
+    height: auto;
+    overflow-x: hidden;
+}
+
+.board{
+    width: 700px;
+    height: 250px;
+    border: 1px solid #000;
+    margin: 0 auto;
+    margin-top: 5rem;
+    position: relative;
+}
+
+#cat{
+    width: 60px;
+    height: 50px;
+    background-image: url(assets/img/cat.png);
+    background-size: 60px 50px;
+    position: absolute;
+    top: 200px;    
+}
+
+.jump{
+    animation: jump 0.6s linear;
+}
+
+@keyframes jump {
+    0% {
+        top: 200px;
+    }
+
+    25%{
+        top: 175px;
+    }
+
+    50% {
+        top: 145px;
+    }
+
+    75% {
+        top: 175px;
+    }
+
+    100% {
+        top: 200px;
+    }
+}
+
+
+#cactus{
+    width: 40px;
+    height: 40px;
+    background-image: url(assets/img/cactus.png);
+    background-size: 40px 40px;
+    position: absolute;
+    top: 210px;
+    left: 660px;
+    animation: animateCactus 2s linear infinite;
+}
+
+@keyframes animateCactus {
+    0% {
+        left: 660px;
+    }
+
+    100% {
+        left: -10px;
+    }
+}
+
+#cloud{
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    background-image: url(assets/img/cloud.png);
+    background-size: 80px 80px;
+    background-repeat: repeat-x;
+    top: 50px;
+    left: 540px;
+    animation: animateCloud 5s linear infinite alternate;
+}
+
+@keyframes animateCloud {
+    0% {
+        left: 540px;
+    }
+
+    100% {
+        left: -10px;
+    }
+}
+
+.score{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 40px;
+    font-family: 'Courier New', sans-serif;
+    font-size: 17px;
+}

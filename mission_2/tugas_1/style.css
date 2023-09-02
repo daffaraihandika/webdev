@@ -1,7 +1,17 @@
 body {
   height: auto;
   overflow-x: hidden;
-  padding-bottom: 40px;
+  background-color: #F0F0F0;
+}
+
+.navbar{
+  background-color: #3C486B;
+}
+
+.navbar a{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  font-size: 23px;
 }
 
 .items {
@@ -38,26 +48,33 @@ body {
   padding-top: 40px;
 }
 
+.cart-item .col-md-2{
+  font-weight: bold;
+}
+
 #cartPembayaran {
   display: none;
+  padding-bottom: 40px;
 }
 
 .pembayaran {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 0 12px; */
 }
 
 .pembayaran .col-3 {
   flex: 1;
-  /* margin-right: 10px; */
+  font-weight: bold;
 }
 
 .pembayaran .col-7 {
   flex: 2;
-  /* margin-right: 10px; */
   text-align: end;
+}
+
+.pembayaran .subtotal{
+  font-weight: bold;
 }
 
 .pembayaran .col-3:last-child {
@@ -65,8 +82,9 @@ body {
 }
 
 hr {
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
+  margin-top: 40px;
 }
 
 .btn-struk {
@@ -96,7 +114,6 @@ hr {
 }
 
 .struk-produk{
-  /* margin-bottom: 20px; */
   padding: 10px 15px;
 }
 
@@ -104,8 +121,13 @@ hr {
   text-align: start;
 }
 
+.struk-produk .col-md-4{
+  font-weight: bold;
+}
+
 .struk-pembayaran{
   padding: 10px 15px;
+  font-weight: bold;
 }
 
 .struk-pembayaran .col-md-8{
@@ -119,3 +141,20 @@ hr {
 .struk-pembayaran .col-md-4 p{
   text-align: end;
 }
+
+#product .nama-produk{
+  color: #000;
+  font-size: 17px;
+  font-weight: bold
+}
+
+#product .row-product:not(:last-of-type){
+  margin-bottom: 40px;
+}
+
+#cartContainer .title{
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  font-size: 28px;
+}
+

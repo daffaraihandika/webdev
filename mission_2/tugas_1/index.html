@@ -16,11 +16,18 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css" />
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <title>Hello, world!</title>
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-md">
+        <a class="navbar-brand" href="#">Pick Me Store</a>
+      </div>
+    </nav>
     <div class="container-fluid">
-      <h1 class="title">Pick Me Store</h1>
       <div class="row items" id="product"></div>
 
       <div class="" id="cartContainer"></div>
@@ -29,12 +36,9 @@
 
       <div id="cartPembayaran">
         <div class="totalBayar pt-4">
-          <!-- <p>Total Pembelian : <span class="total-pembelian"></span></p>
-          <p>Pajak 11% : <span class="pajak"></span></p>
-          <p>Total Bayar : <span class="total-bayar"></span></p> -->
           <div class="row pembayaran">
             <div class="col-3"></div>
-            <div class="col-7">
+            <div class="col-7 subtotal">
               <p>Total Pembelian :</p>
               <p>Pajak 11% :</p>
               <p>Total Bayar :</p>
@@ -49,7 +53,6 @@
             <div class="col-3"></div>
             <div class="col-7">
               <!-- Struk -->
-              <!-- Button trigger modal -->
               <button
                 type="button"
                 class="btn btn-primary btn-struk"
@@ -69,7 +72,6 @@
                         <p>Address: Serray Valey DeLima No D6</p>
                         <p>Telp: 022-5203542</p>
                       </div>
-                      <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
                     </div>
                     <div class="modal-body" id="receipt"></div>
                     
@@ -77,21 +79,16 @@
                     <div class="modal-body">
                       <div class="row struk-pembayaran">
                         <div class="col-md-8">
-                          <!-- Kolom pertama dengan judul -->
                           <p>Total Pembelian :</p>
                           <p>Pajak 11% :</p>
                           <p>Total Bayar :</p>
                         </div>
                         <div class="col-md-4">
-                          <!-- Kolom kedua dengan nilai -->
                           <p>Rp <span class="total-pembelian"></span></p>
                           <p>Rp <span class="pajak"></span></p>
                           <p>Rp <span class="total-bayar"></span></p>
                         </div>
                       </div>
-                      <!-- Tombol Close dan Save Changes (jika dibutuhkan) -->
-                      <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button> -->
                     </div>                    
                   </div>
                 </div>
