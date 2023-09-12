@@ -1,0 +1,27 @@
+GET http://localhost:5000/user
+
+###
+GET http://localhost:5000/user/14
+
+###
+POST http://localhost:5000/user
+Content-Type: application/json
+
+{
+    "nama": "gian",
+    "email": "gian123@gmail.com",
+    "password": "password321",
+    "usia": 25
+}
+
+###
+PATCH http://localhost:5000/user/14
+Content-Type: application/json
+
+{
+    "nama": "Daffaaassss",
+    "password": "tesss123"
+}
+
+###
+DELETE http://localhost:5000/user/1
